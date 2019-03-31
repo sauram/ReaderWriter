@@ -47,12 +47,12 @@ int main(){
   pthread_t reader_tid[5],writer_tid[5];
   sem_init(&mutual_wala_execution,0,1);
   sem_init(&block_ko_writekaro,0,1);
-  for(i=0;i<=2;i++)
+  for(i=0;i<=3;i++)
   {
     pthread_create(&writer_tid[i],NULL,writer,(void *)i);
     pthread_create(&reader_tid[i],NULL,reader,(void *)i);
   }
-  for(i=0;i<=2;i++)
+  for(i=0;i<=3;i++)
   {
     pthread_join(writer_tid[i],NULL);
     pthread_join(reader_tid[i],NULL);
